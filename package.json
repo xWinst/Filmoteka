@@ -1,11 +1,11 @@
 {
-    "name": "goit-js-project-filmoteka",
+    "name": "filmoteka",
     "version": "2.0.0",
     "description": "",
-    "homepage": "https://kate-zahorui.github.io/goit-js-project-filmoteka",
+    "homepage": "https://xWinst.github.io/Filmoteka",
     "scripts": {
         "start": "parcel src/*.html",
-        "build": "parcel build src/*.html --public-url /goit-js-project-filmoteka/"
+        "build": "parcel build src/*.html --public-url /Filmoteka/"
     },
     "repository": {
         "type": "git",

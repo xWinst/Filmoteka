@@ -1,0 +1,134 @@
+.header {
+    height: 230px;
+    padding-top: 40px;
+    background-image: url(../images/header_mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    @include retina {
+        background-image: url(../images/header_mobile@2x.jpg);
+    }
+    @include tablet {
+        height: 216px;
+        background-image: url(../images/header_tablet.jpg);
+        @include retina {
+            background-image: url(../images/header_tablet@2x.jpg);
+        }
+    }
+    @include desktop {
+        background-image: url(../images/header_desktop.jpg);
+        @include retina {
+            background-image: url(../images/header_desktop@2x.jpg);
+        }
+    }
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+    color: $whiteColor;
+    @include desktop {
+        gap: 10px;
+    }
+}
+.logo__text {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+.navigation {
+    font-weight: 500;
+    line-height: 1.17;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $whiteColor;
+}
+.navigation__list {
+    display: flex;
+    gap: 40px;
+    text-transform: uppercase;
+}
+.link--current {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+        height: 3px;
+        margin: inherit;
+        display: block;
+        background-color: $secondAccentColor;
+    }
+}
+.header__search {
+    position: relative;
+    display: block;
+    max-width: 336px;
+    margin: 30px auto 10px;
+    @include desktop {
+        max-width: 394px;
+    }
+}
+.header__input {
+    width: 100%;
+    height: 20px;
+    font-size: 14px;
+    line-height: 1.17;
+    display: flex;
+    align-items: center;
+    color: $whiteColor;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5px solid $whiteColor;
+    outline: none;
+    &::placeholder {
+        color: $whiteColor;
+    }
+}
+.header__icon {
+    position: absolute;
+    width: 12px;
+    right: 0;
+    bottom: 6px;
+    fill: $whiteColor;
+}
+.header-my-library {
+    height: 230px;
+    padding-top: 40px;
+    background-image: url(../images/my_library_mobile.jpg),
+        linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    @include retina {
+        background-image: url(../images/my_library_mobile@2x.jpg),
+            linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+    }
+    @include tablet {
+        height: 219px;
+        background-image: url(../images/my_library_tablet.jpg),
+            linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+        @include retina {
+            background-image: url(../images/my_library_tablet@2x.jpg),
+                linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+        }
+    }
+    @include desktop {
+        height: 216px;
+        background-image: url(../images/my_library_desktop.jpg),
+            linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+        @include retina {
+            background-image: url(../images/my_library_desktop@2x.jpg),
+                linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+        }
+    }
+}
+.header__container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}

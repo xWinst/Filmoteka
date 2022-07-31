@@ -6,9 +6,10 @@ export function createMarkup(data) {
             const { genre_ids, title, release_date, poster_path, id } =
                 fullFilmInfo;
             const allGenres = genre_ids.map(id => getGenres(id));
-            if (genres.length > 2) {
-                genres = `${allGenres[0]}, ${allGenres[1]}, Other`;
-            }
+            const genres =
+                allGenres.length > 2
+                    ? `${allGenres[0]}, ${allGenres[1]}, Other`
+                    : allGenres.join(', ');
             let posterUrl;
             if (!poster_path) {
                 posterUrl = poster;

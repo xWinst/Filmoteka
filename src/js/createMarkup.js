@@ -1,12 +1,12 @@
 import genres from '../genres.json';
 import poster from '../images/noposter.jpg';
-export function createMarkup(listMovie) {
+export default function createMarkup(listMovie) {
     return listMovie
         .map((movieData, index) => {
             const {
                 genre_ids = [],
                 title,
-                release_date,
+                release_date = '',
                 poster_path,
                 id,
             } = movieData;

@@ -1,19 +1,21 @@
-import { createMarkup } from './js/createMarkup';
+import createMarkup from './js/createMarkup';
 import getPagination from './js/pagination';
-import { openModal } from './js/openMovieInfo';
+import openModal from './js/openMovieInfo';
+import checkLogin from './js/autorization';
+import getDataBase from './js/DataBase';
 
 const wachedBtn = document.querySelector('.js-watched');
 const queueBtn = document.querySelector('.js-queue');
 const gallery = document.querySelector('.gallery');
 const сontainer = document.querySelector('#tui-pagination-container');
+const dataBase = getDataBase();
 
 document.body.addEventListener('close', rerender);
 gallery.addEventListener('click', openModal);
 pageInit();
 
 function pageInit() {
-    if (window.location.pathname === '/index.html') return;
-    sessionStorage.setItem('window', 'library');
+    checkLogin();
     wachedBtn.addEventListener('click', showLibrary);
     queueBtn.addEventListener('click', showLibrary);
     if (localStorage.getItem('currentLibrary') === 'queue') {
@@ -36,9 +38,14 @@ function rerender() {
     renderLibary(sessionStorage.getItem('currentPage'));
 }
 
-function renderLibary(currentPage) {
+async function renderLibary(currentPage) {
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const userData =
+        (user ? await dataBase.readUserData(user.uid) : null) || {};
     const currentLibrary = localStorage.getItem('currentLibrary');
-    const libraryList = JSON.parse(localStorage.getItem(currentLibrary)) || [];
+    const libraryList = user
+        ? userData[currentLibrary] || []
+        : JSON.parse(localStorage.getItem(currentLibrary)) || [];
     const perPage = getPerPage();
     const pagination = getPagination(libraryList.length, perPage);
     let visibleList;

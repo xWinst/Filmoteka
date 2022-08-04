@@ -1,6 +1,6 @@
 .header {
-    height: 230px;
-    padding-top: 40px;
+    // height: 230px;
+    padding-top: 20px;
     background-image: url(../images/header_mobile.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +9,7 @@
         background-image: url(../images/header_mobile@2x.jpg);
     }
     @include tablet {
-        height: 216px;
+        // height: 216px;
         background-image: url(../images/header_tablet.jpg);
         @include retina {
             background-image: url(../images/header_tablet@2x.jpg);
@@ -73,17 +73,18 @@
     }
 }
 
-.header__search {
+.header__search-box {
     position: relative;
     display: block;
-    max-width: 336px;
-    margin: 30px auto 10px;
-    @include desktop {
-        max-width: 394px;
-    }
+    // max-width: 336px;
+    // margin: 30px auto 10px;
+    // @include desktop {
+    //     max-width: 394px;
+    // }
 }
 
 .header__input {
+    min-width: 250px;
     width: 100%;
     height: 20px;
     font-size: 14px;
@@ -102,7 +103,6 @@
 
 .header__icon {
     position: absolute;
-    width: 12px;
     right: 0;
     bottom: 6px;
     fill: $whiteColor;
@@ -142,5 +142,119 @@
             background-image: url(../images/my_library_desktop@2x.jpg),
                 linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
         }
+    }
+}
+
+.filter {
+    width: 150px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+
+    &__title {
+        
+        @include font(14, 500, 1.5, 0.02em);
+        color: white;
+
+        margin-top: 20px;
+    }
+   
+    &__input {
+        margin-bottom: 10px;
+
+        @include font(12, 500, 1.15, 0.02em);
+        text-align: center;
+        display: block;
+        color: $mainColor;
+        padding: 5px 30px 3px 20px;
+        width: 150px;
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid $secondAccentColor;
+        box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+        border-radius: 6px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+   
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+            linear-gradient(to bottom, $secondAccentColor 0%, #eb5a06a2 100%);
+        background-repeat: no-repeat, repeat;
+        background-position: right 5px top 58%, 0;
+        background-size: 14px auto, 100%;
+        @media screen and (max-width: 767px) {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &__input::-ms-expand {
+            display: none;
+        }
+        &__input:hover {
+            border-color: rgb(111, 111, 111);
+        }
+        &__input:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 1px 1px rgb(231, 3, 3);
+            box-shadow: 0 0 0 3px -moz-mac-focusring;
+            color: #222;
+            outline: none;
+        }
+        &__input option {
+            font-weight: 500;
+        }
+    }
+    &__checkbox {
+        padding-bottom: 10px;
+        color: #fff;
+    }
+}
+
+.header__search {
+    @extend %flexCentered;
+    position: relative;
+    // width: 280px;
+    margin: 37px auto 0 auto;
+    @include tablet {
+        // width: 336px;
+        margin-top: 49px;
+    }
+    @include desktop {
+        // width: 394px;
+        margin-top: 50px;
+    }
+
+ 
+}
+
+.header__btn-mic {
+    margin-right: 8px;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    color: $whiteColor;
+    transition: transform 500ms linear;
+}
+.header__icon-mic {
+    fill: currentColor;
+}
+
+.header__icon-record {
+    margin-right: 8px;
+    fill: red;
+    background-color: transparent;
+    border: transparent;
+}
+
+.-active {
+    animation: fire-color 700ms linear infinite alternate;
+}
+@keyframes fire-color {
+    0% {
+        color: $whiteColor;
+    }
+    100% {
+        transform: scale(1.7);
+        color: $accentColor;
     }
 }

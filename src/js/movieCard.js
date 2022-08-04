@@ -1,6 +1,6 @@
 import svg from '../images/icons.svg';
 
-export function movieCard({
+export default function movieCard({
     title,
     vote_average,
     vote_count,

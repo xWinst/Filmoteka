@@ -2,26 +2,31 @@ import debounce from 'lodash.debounce';
 import { Notify, Report } from 'notiflix';
 import Delivery from './js/Delivery';
 import getPagination from './js/pagination';
-import { createMarkup } from './js/createMarkup';
-import { openModal } from './js/openMovieInfo';
+import initialFilter from './js/filter';
+import initialMicrophone from './js/microphone';
+import checkLogin from './js/autorization';
+import createMarkup from './js/createMarkup';
+import openModal from './js/openMovieInfo';
 
-const input = document.querySelector('#search-box');
+export const input = document.querySelector('#search-box');
 const gallery = document.querySelector('.gallery');
-const сontainer = document.querySelector('#tui-pagination-container');
-const delivery = new Delivery();
+const container = document.querySelector('#tui-pagination-container');
+export const delivery = new Delivery();
 
 gallery.addEventListener('click', openModal);
 input.addEventListener('input', debounce(searchMovies, 300));
+initialFilter();
+initialMicrophone();
+checkLogin();
 searchMovies();
 
 async function searchMovies() {
     delivery.query = input.value.trim();
     const data = await getData();
-    sessionStorage.setItem('window', 'home');
     let pagination;
 
     if (data.total_results > 20) {
-        сontainer.removeAttribute('style');
+        container.removeAttribute('style');
         pagination = getPagination(data.total_results, 20);
         pagination.on('afterMove', nextPage);
     } else {

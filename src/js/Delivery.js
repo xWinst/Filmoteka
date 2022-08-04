@@ -5,14 +5,12 @@ const API_KEY = 'ba6eefe67f978283c5f8594635575ba8';
 
 export default class Delivery {
     #query = '';
-    #page = 1;
-
-    set page(newPage) {
-        this.#page = newPage;
-    }
+    page = 1;
+    genre = '';
+    year = '';
 
     set query(newQuery) {
-        this.#page = 1;
+        this.page = 1;
         this.#query = newQuery;
     }
 
@@ -32,12 +30,18 @@ export default class Delivery {
         return await this.#fetch(`movie/${id}/videos`);
     }
 
+    async filter() {
+        return await this.#fetch(`discover/movie`);
+    }
+
     async #fetch(typeRequest) {
         const response = await axios.get(typeRequest, {
             params: {
                 api_key: API_KEY,
                 query: this.#query,
-                page: this.#page,
+                page: this.page,
+                primary_release_year: this.year,
+                with_genres: this.genre,
             },
         });
         return response.data;

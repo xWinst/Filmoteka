@@ -1,14 +1,14 @@
 import * as basicLightBox from 'basiclightbox';
-import Delivery from './Delivery';
-import { movieCard } from './movieCard';
-import { renderModalButtons } from './modalButtons';
 import { Notify } from 'notiflix';
+import Delivery from './Delivery';
+import movieCard from './movieCard';
+import renderModalButtons from './modalButtons';
 
 const delivery = new Delivery();
 let modalWindow;
 let item;
 
-export function openModal(event) {
+export default function openModal(event) {
     const node = event.target.parentNode;
     if (node.nodeName === 'LI') {
         item = node;

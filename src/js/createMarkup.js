@@ -1,33 +1,35 @@
 import genres from '../genres.json';
 import poster from '../images/noposter.jpg';
-export function createMarkup(data) {
-    return data
-        .map((fullFilmInfo, index) => {
-            const { genre_ids, title, release_date, poster_path, id } =
-                fullFilmInfo;
+export function createMarkup(listMovie) {
+    return listMovie
+        .map((movieData, index) => {
+            const {
+                genre_ids = [],
+                title,
+                release_date,
+                poster_path,
+                id,
+            } = movieData;
             const allGenres = genre_ids.map(id => getGenres(id));
             const genres =
                 allGenres.length > 2
                     ? `${allGenres[0]}, ${allGenres[1]}, Other`
                     : allGenres.join(', ');
-            let posterUrl;
-            if (!poster_path) {
-                posterUrl = poster;
-            } else {
-                posterUrl = `https://image.tmdb.org/t/p/original/${poster_path}`;
-            }
-            fullFilmInfo.genres = allGenres;
-            fullFilmInfo.posterUrl = posterUrl;
+            const posterUrl = poster_path
+                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                : poster;
+            movieData.genres = allGenres;
+            movieData.posterUrl = posterUrl;
             return /*html*/ `
-            <li class="list__item" id="${index}" data-id='${id}'>
-                <img src="${posterUrl}" alt="" class="list__img" loading = "lazy" />
-                <div class="list__text">
-                    <h2 class="list__title">${title}</h2>
-                    <p class="list__genre">${genres} | ${release_date.slice(
+        <li class="list__item" id="${id}" data-index='${index}'>
+            <img src="${posterUrl}" alt="poster" class="list__img" loading = "lazy" />
+            <div class="list__description">
+                <h2 class="list__title">${title}</h2>
+                <p class="list__text">${genres} | ${release_date.slice(
                 0,
                 4
             )}</p>
-                </div>
+            </div>
         </li>`;
         })
         .join('');

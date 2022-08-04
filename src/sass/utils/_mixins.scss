@@ -26,12 +26,8 @@
 
 @mixin button($tc) {
     height: 44px;
-    box-sizing: border-box;
-    font-family: 'Roboto';
     font-weight: 500;
-    font-size: 12px;
     line-height: 1.33;
-    text-align: center;
     text-transform: uppercase;
     color: $tc;
     background-color: transparent;
@@ -49,6 +45,5 @@
         color: #ffffff;
         border-color: $accentColor;
         background-color: $accentColor;
-        transform: scale(1.03);
     }
 }

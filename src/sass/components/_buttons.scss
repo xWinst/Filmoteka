@@ -1,11 +1,26 @@
-.modal__btns {
+.btns {
     display: flex;
     justify-content: center;
-    @include desktop {
-        justify-content: flex-start;
+    gap: 20px;
+    @include tablet {
+        gap: 15px;
     }
 
     &__button {
+        @include button($whiteColor);
+        width: 130px;
+        margin-top: 60px;
+    
+        @include tablet {
+            width: 152px;
+        }
+        @include desktop {
+            width: 148px;
+            margin-top: 40px;
+        }
+    }
+
+    &__button--modal {
         @include button($mainColor);
         width: 110px;
         @include mobile {
@@ -14,39 +29,6 @@
         @include desktop {
             width: 136px;
         }
-        &:first-child {
-            margin-right: 20px;
-            @include tablet {
-                margin-right: 15px;
-            }
-        }
     }
 }
 
-.header__btns__button {
-    @include button($whiteColor);
-    width: 130px;
-    margin-top: 60px;
-    font-family: inherit;
-    @include tablet {
-        width: 152px;
-    }
-    @include desktop {
-        width: 148px;
-        margin-top: 40px;
-    }
-}
-
-.header__btns {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    @include tablet {
-        gap: 32px;
-    }
-
-    @include desktop {
-        gap: 16px;
-    }
-}

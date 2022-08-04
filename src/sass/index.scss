@@ -1,5 +1,6 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import '~node_modules/tui-pagination/dist/tui-pagination.min.css';
+@import './node_modules/basiclightbox/src/styles/main.scss';
 
 @import './utils/variables';
 @import './utils/mixins';
@@ -14,4 +15,3 @@
 @import './layout/footer';
 @import './layout/modal';
 
-@import './node_modules/basiclightbox/src/styles/main.scss';

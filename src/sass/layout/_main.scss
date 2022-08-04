@@ -8,11 +8,13 @@
 }
 .gallery {
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
+    gap: 20px;
     @include tablet {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         gap: 32px;
     }
@@ -21,19 +23,8 @@
         justify-content: start;
     }
 }
-// .list__item {
-//     display: flex;
-//     flex-direction: column;
-//     }
-.list__item:not(:last-child) {
-    margin-bottom: 20px;
-    @include tablet {
-        margin-bottom: 0;
-    }
-    @include desktop {
-        margin-bottom: 16px;
-    }
-}
+
+
 .list__img {
     border-radius: 5px;
     object-fit: cover;
@@ -45,16 +36,11 @@
         width: 394px;
     }
 }
-.list__text {
-    width: 280px;
+
+.list__description {
     padding-top: 10px;
-    @include tablet {
-        width: 336px;
-    }
-    @include desktop {
-        width: 394px;
-    }
 }
+
 .list__title {
     font-weight: 500;
     font-size: inherit;
@@ -68,9 +54,8 @@
         line-height: 1.2;
     }
 }
-.list__genre {
+.list__text {
     font-weight: 500;
-    line-height: 1.33;
     color: $accentColor;
     @include desktop {
         font-size: 20px;
@@ -78,23 +63,13 @@
     }
 }
 .tui-pagination {
-    margin: 40px 0 0 0;
+    margin-top: 40px;
     height: 40px;
     @include tablet {
-        margin: 60px 0 0 0;
+        margin-top: 60px;
     }
 }
-.list__vote {
-    display: inline-block;
-    width: 36px;
-    text-align: center;
-    color: $whiteColor;
-    background-color: $accentColor;
-    border-radius: 5px;
-    @include desktop {
-        width: 40px;
-    }
-}
+
 .tui-pagination .tui-page-btn {
     width: 32px;
     height: 32px;
@@ -116,9 +91,7 @@
 .tui-pagination .tui-first-child.tui-is-selected {
     border-left: transparent;
 }
-// .tui-pagination .tui-is-selected:hover {
-//     background-color: #4B96E6;
-// }
+
 .tui-pagination .tui-page-btn:hover {
     background-color: $accentColor;
     border-radius: 5px;

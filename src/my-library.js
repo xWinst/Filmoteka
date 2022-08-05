@@ -3,15 +3,18 @@ import getPagination from './js/pagination';
 import openModal from './js/openMovieInfo';
 import checkLogin from './js/autorization';
 import getDataBase from './js/DataBase';
+import openFooterModal from './js/about';
 
 const wachedBtn = document.querySelector('.js-watched');
 const queueBtn = document.querySelector('.js-queue');
 const gallery = document.querySelector('.gallery');
 const сontainer = document.querySelector('#tui-pagination-container');
+const footerLink = document.querySelector('.footer__link');
 const dataBase = getDataBase();
 
 document.body.addEventListener('close', rerender);
 gallery.addEventListener('click', openModal);
+footerLink.addEventListener('click', openFooterModal);
 pageInit();
 
 function pageInit() {

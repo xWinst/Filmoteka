@@ -9,7 +9,7 @@ import {
     updateProfile,
     updateCurrentUser,
 } from 'firebase/auth';
-import googleIcon from '../images/google.svg';
+import icons from '../images/icons.svg';
 
 const provider = new GoogleAuthProvider();
 const firebaseConfig = {
@@ -44,7 +44,9 @@ function openRegistrationForm() {
         <div class="form__thumb">
             <button class ="form__button" type='submit' id='login'>Login</button>
             <button class ="form__button" type='button' id='google'>
-                <img src="${googleIcon}"/>
+                <svg width="24" height="24">
+                    <use href="${icons}#google"></use>
+                </svg> 
                 <span>Sign-in with Google</span>
             </button>
         </div>

@@ -1,4 +1,4 @@
-import svg from '../images/icons.svg';
+import icons from '../images/icons.svg';
 
 export default function movieCard({
     title,
@@ -14,7 +14,7 @@ export default function movieCard({
     <div class="modal">
                 <button type="button" class="modal__close-btn" data-modal-close>
                     <svg class="modal__close-icon" width="16" height="16">
-                        <use href="${svg}#icon-close"></use>
+                        <use href="${icons}#icon-close"></use>
                     </svg>
                 </button>
 
@@ -41,7 +41,7 @@ export default function movieCard({
                         <h3 class="modal__about--title">ABOUT</h3>
                         <button type="button" class="modal__watch-button js-playtrailer">
                             <svg class="modal__play-icon" width="21" height="15">
-                                <use href="${svg}#icon-play"></use>
+                                <use href="${icons}#icon-play"></use>
                             </svg>
                             Watch trailer
                         </button>

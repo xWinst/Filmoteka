@@ -1,7 +1,76 @@
-.footer__icon {
-
-    --color1: blue;
-    &:hover {
-        --color1: green;
+.footer {
+    @media screen and (min-width: 320px) {
+        text-align: center;
+        width: 100%;
+        background: #f7f7f7;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 28px;
+        font-size: 14px;
+        line-height: 1.17;
+        color: #545454;
     }
+    @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+.footer__dev {
+    @media screen and (min-width: 320px) {
+        text-align: center;
+        background: #f7f7f7;
+        font-size: 14px;
+        line-height: 1.14;
+        color: #545454;
+    }
+}
+
+.footer__text {
+    display: flex;
+    flex-direction: column;
+
+    color: #545454;
+    @include tablet {
+        flex-direction: row;
+    }
+}
+.footer__conteiner {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    @include tablet {
+        padding-top: 0;
+        align-items: center;
+    }
+}
+.footer__image {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: orange;
+    animation: pulse 1s ease infinite;
+}
+.footer__link {
+    color: #545454;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.3);
+    }
+    40% {
+        transform: scale(0.8);
+    }
+    60% {
+        transform: scale(1);
+    }
+    // 80% {
+    //     transform: scale(1);
+    // }
 }

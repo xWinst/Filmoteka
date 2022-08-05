@@ -38,13 +38,8 @@
 }
 
 .logo-icon {
-    // stroke: $whiteColor;
-     fill:none;
-     stroke: red;
-     &:hover {
-        stroke: green;
-        fill:rgb(111, 111, 111);
-     }
+    //  fill:none;
+     stroke: $whiteColor;
 }
 
 .logo__text {
@@ -120,7 +115,7 @@
 
 .header-my-library {
     height: 230px;
-    padding-top: 40px;
+    padding-top: 20px;
     background-image: url(../images/my_library_mobile.jpg),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     background-repeat: no-repeat;

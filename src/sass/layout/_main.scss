@@ -25,11 +25,20 @@
 }
 
 .list__item {
+    border-radius: 5px;
     @include tablet {
         width: 336px;
     }
     @include desktop {
         width: 394px;
+    }
+
+    transition: transform 300ms ease, box-shadow 300ms ease, ;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px $accentColor;
+        cursor: pointer;
     }
 }
 
@@ -43,7 +52,7 @@
 .list__description {
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    padding: 8px;
 justify-content: end;
 }
 

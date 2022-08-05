@@ -1,21 +1,20 @@
 import genres from '../genres.json';
-import { delivery } from '../index';
-import createMarkup from './createMarkup';
+import { delivery, searchMovies, setSortBy } from '../index';
 
 const genreChoice = document.querySelector('#genre_choice');
 const yearChoice = document.querySelector('#year_choice');
 const sortChoice = document.querySelector('#sort_choice');
 const filter = document.querySelectorAll('.filter__input');
 const gallery = document.querySelector('.gallery');
-const checkbox = document.querySelector('#genre_checkbox');
 const searchBox = document.querySelector('.header__search');
+const checkbox = document.querySelector('#genre_checkbox');
 
 export default function initialFilter() {
     filter.forEach(item => item.addEventListener('change', changeFilter));
-    checkbox.addEventListener('change', selectTypeQuery);
     renderGenreMenu();
     yearMenu();
     selectTypeQuery();
+    checkbox.addEventListener('change', selectTypeQuery);
 }
 
 function renderGenreMenu() {
@@ -43,10 +42,12 @@ function yearMenu() {
 }
 
 async function changeFilter(event) {
+    if (event.target.name === 'sort') {
+        setSortBy(event.target.value);
+        return;
+    }
     delivery[event.target.name] = event.target.value;
-    const data = await delivery.filter();
-    gallery.innerHTML = createMarkup(data.results);
-    localStorage.setItem('gallery', JSON.stringify(data.results));
+    searchMovies();
 }
 
 function selectTypeQuery() {

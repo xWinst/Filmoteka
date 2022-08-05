@@ -7,20 +7,28 @@ import initialMicrophone from './js/microphone';
 import checkLogin from './js/autorization';
 import createMarkup from './js/createMarkup';
 import openModal from './js/openMovieInfo';
+import openFooterModal from './js/about';
+import loading from './js/loadingSpinner';
 
 export const input = document.querySelector('#search-box');
+const checkbox = document.querySelector('#genre_checkbox');
 const gallery = document.querySelector('.gallery');
 const container = document.querySelector('#tui-pagination-container');
+const footerLink = document.querySelector('.footer__link');
 export const delivery = new Delivery();
+
+let sortBy = '';
+let data;
 
 gallery.addEventListener('click', openModal);
 input.addEventListener('input', debounce(searchMovies, 300));
+footerLink.addEventListener('click', openFooterModal);
 initialFilter();
 initialMicrophone();
 checkLogin();
 searchMovies();
 
-async function searchMovies() {
+export async function searchMovies() {
     delivery.query = input.value.trim();
     const data = await getData();
     let pagination;
@@ -49,22 +57,38 @@ async function searchMovies() {
     }
 }
 
-function nextPage(e) {
-    delivery.page = e.page;
+function nextPage(event) {
+    delivery.page = event.page;
     getData();
 }
+
 async function getData() {
-    let data;
+    loading.show();
     try {
-        data = delivery.query
-            ? await delivery.search()
-            : await delivery.getTrend();
+        if (checkbox.checked || delivery.year) {
+            data = await delivery.filter();
+            if (data.total_results > 10000) {
+                data.total_results = 10000;
+            }
+        } else {
+            data = delivery.query
+                ? await delivery.search()
+                : await delivery.getTrend();
+        }
+        if (sortBy) data.results.sort((a, b) => b[sortBy] - a[sortBy]);
         gallery.innerHTML = createMarkup(data.results);
         localStorage.setItem('gallery', JSON.stringify(data.results));
     } catch (error) {
         Notify.failure(error);
         console.log(error);
     }
+    loading.close();
     console.log(data);
     return data;
+}
+
+export function setSortBy(param) {
+    sortBy = param;
+    data.results.sort((a, b) => b[sortBy] - a[sortBy]);
+    gallery.innerHTML = createMarkup(data.results);
 }

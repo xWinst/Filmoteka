@@ -1,6 +1,6 @@
 import genres from '../genres.json';
 import { delivery } from '../index';
-import { createMarkup } from './createMarkup';
+import createMarkup from './createMarkup';
 
 const genreChoice = document.querySelector('#genre_choice');
 const yearChoice = document.querySelector('#year_choice');

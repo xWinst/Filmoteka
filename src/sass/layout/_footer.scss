@@ -1,0 +1,7 @@
+.footer__icon {
+
+    --color1: blue;
+    &:hover {
+        --color1: green;
+    }
+}

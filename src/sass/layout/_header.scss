@@ -37,6 +37,16 @@
     }
 }
 
+.logo-icon {
+    // stroke: $whiteColor;
+     fill:none;
+     stroke: red;
+     &:hover {
+        stroke: green;
+        fill:rgb(111, 111, 111);
+     }
+}
+
 .logo__text {
     display: none;
     @include tablet {

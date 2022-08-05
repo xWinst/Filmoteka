@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" id="header">
     <div class="container">
         <nav class="navigation">
             <a class="logo link" href="./index.html">
@@ -19,58 +19,72 @@
                 </li>
             </ul>
         </nav>
-
-        <div class="header__search">
-            <svg
-                class="header__icon-record visually-hidden"
-                width="18px"
-                height="18px"
-            >
-                <use href="./images/icons.svg#icon-record"></use>
-            </svg>
-            <button class="header__btn-mic" data-active-mic>
-                <svg class="header__icon-mic" width="24px" height="24px">
-                    <use href="./images/icons.svg#icon-mic"></use>
-                </svg>
-            </button>
-            <label class="header__search-box">
-                <input
-                    class="header__input"
-                    type="text"
-                    id="search-box"
-                    placeholder="Movie search"
-                />
-                <svg class="header__icon" width="12px" height="12px">
-                    <use href="./images/icons.svg#search"></use>
-                </svg>
-            </label>
-        </div>
-
-        <div class="filter">
-            <form class="filter__form">
-                <select class="filter__input" name="genre" id="genre_choice">
-                    <option value="">Choose genre</option>
-                </select>
-                <select
-                    class="filter__input"
-                    name="year"
-                    id="year_choice"
-                ></select>
-                <select class="filter__input" name="sort" id="sort_choice">
-                    <option value="">Sort by</option>
-                    <option value="vote_average">Average voite</option>
-                    <option value="vote_count">Voite count</option>
-                    <option value="popularity">Popularity</option>
-                </select>
+        <div class="header__thumb">
+            <div class="header__container">
+                <div class="header__search">
+                    <svg
+                        class="header__icon-record visually-hidden"
+                        width="18px"
+                        height="18px"
+                    >
+                        <use href="./images/icons.svg#icon-record"></use>
+                    </svg>
+                    <button class="header__btn-mic" data-active-mic>
+                        <svg
+                            class="header__icon-mic"
+                            width="24px"
+                            height="24px"
+                        >
+                            <use href="./images/icons.svg#icon-mic"></use>
+                        </svg>
+                    </button>
+                    <label class="header__search-box">
+                        <input
+                            class="header__input"
+                            type="text"
+                            id="search-box"
+                            placeholder="Movie search"
+                        />
+                        <svg class="header__icon" width="12px" height="12px">
+                            <use href="./images/icons.svg#search"></use>
+                        </svg>
+                    </label>
+                </div>
                 <div class="filter__checkbox">
                     <input type="checkbox" id="genre_checkbox" name="genre" />
                     <label for="genre">Search by genre</label>
                 </div>
-            </form>
+            </div>
+
+            <div class="filter">
+                <form class="filter__form">
+                    <select
+                        class="filter__input filter__input--position"
+                        name="genre"
+                        id="genre_choice"
+                    >
+                        <option value="">Choose genre</option>
+                    </select>
+                    <select
+                        class="filter__input"
+                        name="year"
+                        id="year_choice"
+                    ></select>
+                    <select class="filter__input" name="sort" id="sort_choice">
+                        <option value="">Don't sort</option>
+                        <option value="vote_average">
+                            Sort by Average voite
+                        </option>
+                        <option value="vote_count">Sort by Voite count</option>
+                        <option value="popularity">Sort by Popularity</option>
+                    </select>
+                </form>
+            </div>
         </div>
-        <a href="#header" class="link link__up isnt-show" title="Go up">
+
+        <a href="#header" class="link link__up visually-hidden" title="Go up">
             <svg class="link__up-icon" width="24" height="24">
-                <use href="./images/icons.svg#icon-up"></use>
+                <use href="./images/icons.svg#arrow-up"></use>
             </svg>
         </a>
     </div>

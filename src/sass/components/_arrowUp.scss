@@ -1,0 +1,26 @@
+.link__up {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid $accentColor;
+    box-shadow: 5px 5px 10px rgba(78, 39, 6, 0.5);
+    transform: scale(1);
+
+    z-index: 5;
+    color: $accentColor;
+    background-color: transparent;
+
+    transition: transform 250ms ease;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+    }
+}

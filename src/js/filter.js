@@ -33,7 +33,7 @@ function yearMenu() {
 
     yearChoice.insertAdjacentHTML(
         'beforeend',
-        '<option value="">Choose year</option>'
+        '<option value="">All years</option>'
     );
     for (let i = currentYear; i > startYear; i -= 1) {
         years.push(`<option value="${i}">${i}</option>`);
@@ -52,10 +52,10 @@ async function changeFilter(event) {
 
 function selectTypeQuery() {
     if (checkbox.checked) {
-        searchBox.setAttribute('style', 'opacity: 0');
+        searchBox.setAttribute('style', 'opacity: 0; pointer-events: none;');
         genreChoice.removeAttribute('style');
     } else {
-        genreChoice.setAttribute('style', 'opacity: 0');
+        genreChoice.setAttribute('style', 'opacity: 0; pointer-events: none;');
         searchBox.removeAttribute('style');
     }
 }

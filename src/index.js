@@ -15,11 +15,13 @@ const checkbox = document.querySelector('#genre_checkbox');
 const gallery = document.querySelector('.gallery');
 const container = document.querySelector('#tui-pagination-container');
 const footerLink = document.querySelector('.footer__link');
+const arrowUp = document.querySelector('.link__up');
 export const delivery = new Delivery();
 
 let sortBy = '';
 let data;
 
+window.addEventListener('scroll', showArrow);
 gallery.addEventListener('click', openModal);
 input.addEventListener('input', debounce(searchMovies, 300));
 footerLink.addEventListener('click', openFooterModal);
@@ -91,4 +93,9 @@ export function setSortBy(param) {
     sortBy = param;
     data.results.sort((a, b) => b[sortBy] - a[sortBy]);
     gallery.innerHTML = createMarkup(data.results);
+}
+
+function showArrow() {
+    if (window.pageYOffset < 100) arrowUp.classList.add('visually-hidden');
+    else arrowUp.classList.remove('visually-hidden');
 }

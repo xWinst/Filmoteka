@@ -10,9 +10,11 @@ const queueBtn = document.querySelector('.js-queue');
 const gallery = document.querySelector('.gallery');
 const сontainer = document.querySelector('#tui-pagination-container');
 const footerLink = document.querySelector('.footer__link');
+const arrowUp = document.querySelector('.link__up');
 const dataBase = getDataBase();
 
 document.body.addEventListener('close', rerender);
+window.addEventListener('scroll', showArrow);
 gallery.addEventListener('click', openModal);
 footerLink.addEventListener('click', openFooterModal);
 pageInit();
@@ -81,4 +83,9 @@ function getPerPage() {
         perPage = 8;
     } else perPage = 4;
     return perPage;
+}
+
+function showArrow() {
+    if (window.pageYOffset < 100) arrowUp.classList.add('visually-hidden');
+    else arrowUp.classList.remove('visually-hidden');
 }

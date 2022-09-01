@@ -85,7 +85,6 @@ async function getData() {
         console.log(error);
     }
     loading.close();
-    console.log(data);
     return data;
 }
 

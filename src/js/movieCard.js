@@ -47,8 +47,8 @@ export default function movieCard({
                         </button>
                         <p class="modal__about--text">${overview}</p>
                         <div class="btns">
-                            <button type="button" class="btns__button--modal js-addtowatched" name ="watched">watched</button>
-                            <button type="button" class="btns__button--modal js-addtoqueue" name = "queue">queue</button>
+                            <button type="button" class="btns__button--modal js-addtowatched" name ="watched">add to watched</button>
+                            <button type="button" class="btns__button--modal js-addtoqueue" name = "queue">add to queue</button>
                         </div>
                     </div>
                 </div>

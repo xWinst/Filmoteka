@@ -36,6 +36,7 @@ async function changeList(event) {
     const listFilm = user
         ? userData[btn.name] || []
         : JSON.parse(localStorage.getItem(btn.name)) || [];
+
     const index = listFilm.findIndex(({ id }) => id === Number(currentLi.id));
     if (index === -1) {
         listFilm.push(visibleGallery[currentLi.dataset.index]);
@@ -52,5 +53,10 @@ async function changeList(event) {
             userData.watched || [],
             userData.queue || []
         );
-    } else localStorage.setItem(btn.name, JSON.stringify(listfilm));
+    } else {
+        // console.log('listFilm: ', listFilm);
+        const list = JSON.stringify(listFilm);
+
+        localStorage.setItem(btn.name, list);
+    }
 }

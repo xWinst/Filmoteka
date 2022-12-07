@@ -16,6 +16,7 @@ export default async function renderModalButtons(item) {
         listWatched = JSON.parse(localStorage.getItem('watched')) || [];
         listQueue = JSON.parse(localStorage.getItem('queue')) || [];
     }
+    console.log('listWatched: ', listWatched);
 
     const indexWatched = listWatched.findIndex(
         ({ id }) => id === Number(item.id)
@@ -54,9 +55,7 @@ async function changeList(event) {
             userData.queue || []
         );
     } else {
-        // console.log('listFilm: ', listFilm);
-        const list = JSON.stringify(listFilm);
-
+        const list = JSON.stringify(listfilm);
         localStorage.setItem(btn.name, list);
     }
 }
